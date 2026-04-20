@@ -18,8 +18,9 @@ def apply_fix_perms(img_path, remote_path, mode_hex="0x81a4"):
     run_debugfs(img_path, f"ea_set {remote_path} security.selinux u:object_r:system_file:s0")
 
 def auto_patch(img_path):
+    # Additional safety check inside the function
     if not os.path.exists(img_path):
-        print(f"Error: Image {img_path} not found.")
+        print(f"[-] Error: Image '{img_path}' not found.")
         return
 
     os.makedirs(TMP_DIR, exist_ok=True)
@@ -65,7 +66,7 @@ def auto_patch(img_path):
         run_debugfs(img_path, f"write {DEFAULT_APK} {remote_apk}")
         apply_fix_perms(img_path, remote_apk, "0x81a4")
     else:
-        print(f"Warning: APK {DEFAULT_APK} not found. Skipping overlay.")
+        print(f"[!] Warning: APK {DEFAULT_APK} not found. Skipping overlay.")
 
 def main():
     parser = argparse.ArgumentParser(description="G72 Porter Tool", add_help=False)
@@ -75,7 +76,14 @@ def main():
     args = parser.parse_args()
 
     if args.patch:
+        # Check if file exists before starting the process
+        if not os.path.isfile(args.patch):
+            print(f"Error: The file '{args.patch}' does not exist or is not a valid file.")
+            sys.exit(1)
+            
+        print(f"[*] Starting patch on: {args.patch}")
         auto_patch(args.patch)
+        print("[+] Process finished.")
     else:
         parser.print_help()
 
