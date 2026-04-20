@@ -48,7 +48,7 @@ Ideal for preparing the image before flashing. It automatically performs the boo
 python porter.py -p /sdcard/GSI/system.img
 
 ```
-### C. Standalone Service Script
+### B. Standalone Service Script
 You can also run the shell script directly for hardware services without using the Python menu:
 ```bash
 su -c "sh services.sh"
