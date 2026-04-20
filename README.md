@@ -37,7 +37,7 @@ pkg install python git e2fsprogs -y
    ```
  3. **Execution Permissions:**
    ```bash
-   chmod +x porter.py services.sh
+   chmod +x port.py services.sh
    
    ```
 ## 📖 Usage Guide
@@ -45,7 +45,7 @@ The script is managed via command-line flags for a faster workflow:
 ### A. Patch an external GSI image (-p)
 Ideal for preparing the image before flashing. It automatically performs the boot fix, injects the optimized build.prop, and adds the Overlay APK.
 ```bash
-python porter.py -p /sdcard/GSI/system.img
+python port.py -p /sdcard/GSI/system.img
 
 ```
 ### B. Standalone Service Script
