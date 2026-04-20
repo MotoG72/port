@@ -37,7 +37,7 @@ pkg install python git e2fsprogs -y
    ```
  3. **Execution Permissions:**
    ```bash
-   chmod +x porter.py servicios.sh
+   chmod +x porter.py services.sh
    
    ```
 ## 📖 Usage Guide
