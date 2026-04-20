@@ -25,7 +25,7 @@ pkg install python git e2fsprogs -y
 ## 🚀 Installation & Setup
  1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/MotoG72/port](https://github.com/MotoG72/port)
+   git clone https://github.com/MotoG72/port
    cd port
    
    ```
