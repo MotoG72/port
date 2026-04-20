@@ -61,7 +61,7 @@ su -c "sh services.sh"
  * **Permissions**: Automatically sets UID, GID, and SELinux contexts (u:object_r:system_file:s0).
 ## ⚠️ Warning
 This software interacts directly with system partitions. Use it at your own risk. Always keep a backup of your original system.img.
-**Developed by snth** | 2026
+**Developed by snth, README.md by Gemini (lol)** | 2026
 ```
 
 ```
