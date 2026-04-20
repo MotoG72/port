@@ -4,7 +4,7 @@ import argparse
 import sys
 
 TMP_DIR = "/sdcard/GSI/tmp"
-DEFAULT_APK = "./port/framework-res__auto_generated_rro_product.apk"
+DEFAULT_APK = "/data/user/0/com.termux/files/home/port/framework-res__auto_generated_rro_product.apk"
 
 def run_debugfs(img_path, cmd):
     full_process = f"echo '{cmd}' | debugfs -w {img_path}"
