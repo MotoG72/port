@@ -16,18 +16,17 @@ pkg update && pkg upgrade -y
 ```
 ### 2. Install basic tools
 ```bash
-pkg install python git e2fsprogs tsu -y
+pkg install python git e2fsprogs -y
 
 ```
  * **Python**: Required to run the main script.
  * **e2fsprogs**: Contains debugfs, used to read/write inside the .img image.
  * **Git**: To clone the repository and fetch the necessary files.
- * **tsu**: A su wrapper to handle root permissions correctly in Termux.
 ## 🚀 Installation & Setup
  1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-user/your-repo-name.git](https://github.com/your-user/your-repo-name.git)
-   cd your-repo-name
+   git clone [https://github.com/MotoG72/port](https://github.com/MotoG72/port)
+   cd port
    
    ```
  2. **Storage Permissions:**
@@ -38,7 +37,7 @@ pkg install python git e2fsprogs tsu -y
    ```
  3. **Execution Permissions:**
    ```bash
-   chmod +x script.py servicios.sh
+   chmod +x porter.py servicios.sh
    
    ```
 ## 📖 Usage Guide
@@ -46,21 +45,13 @@ The script is managed via command-line flags for a faster workflow:
 ### A. Patch an external GSI image (-p)
 Ideal for preparing the image before flashing. It automatically performs the boot fix, injects the optimized build.prop, and adds the Overlay APK.
 ```bash
-python script.py -p /sdcard/GSI/system.img
-
-```
-> **Note:** This flag expects the APK to be located at ./port/framework-res__auto_generated_rro_product.apk.
-> 
-### B. Run services live (-a)
-Use this if you are already booted into the GSI and need to start Audio, Biometrics, NFC, and other hardware services manually. **Requires Root.**
-```bash
-tsu -c "python script.py -a"
+python porter.py -p /sdcard/GSI/system.img
 
 ```
 ### C. Standalone Service Script
 You can also run the shell script directly for hardware services without using the Python menu:
 ```bash
-tsu -c "sh servicios.sh"
+su -c "sh services.sh"
 
 ```
 ## ⚙️ What does the Auto-Patch include?
